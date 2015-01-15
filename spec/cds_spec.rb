@@ -32,7 +32,7 @@ describe("CD") do
     it("returns multiple CDs by the artist specified") do
       test_cd = CD.new({:artist => "Man… or Astro-Man?", :album => "Experiment Zero", :year => 1996})
       test_cd.store()
-      other_cd = CD.new({:artist => "Man… or Astro-Man?", :album => "Project Infinity", :year =>1995})
+      other_cd = CD.new({:artist => "Man… or Astro-Man?", :album => "Project Infinity", :year => 1995})
       other_cd.store()
       expect(CD.fetch("artist", "Man… or Astro-Man?")).to(eq([[test_cd.artist(), test_cd.album(), test_cd.year()], [other_cd.artist(), other_cd.album(), other_cd.year()]]))
     end
