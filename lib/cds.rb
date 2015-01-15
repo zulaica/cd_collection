@@ -18,4 +18,8 @@ class CD
     @@collection
   end
 
+  define_singleton_method(:clear) do
+    @@collection = []
+  end
+
 end
