@@ -28,12 +28,12 @@ class CD
     @@collection.each() do |cd|
       if search_by == "artist"
         if cd.artist() == search_term
-          the_cd = [cd.artist(), cd.album(), cd.year()]
+          the_cd = cd
           results.push(the_cd)
         end
       elsif search_by == "album"
         if cd.album() == search_term
-          the_cd = [cd.artist(), cd.album(), cd.year()]
+          the_cd = cd
           results.push(the_cd)
         end
       end
