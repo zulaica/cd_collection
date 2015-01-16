@@ -1,0 +1,53 @@
+<form action="/" method="post">
+  <p>Add a CD to the collection</p>
+  <label name="add_artist">Artist</label>
+  <input name="add_artist" type="text" placeholder="Artist name"/>
+  <label name="add_album">Album</label>
+  <input name="add_album" type="text" placeholder="Album name"/>
+  <label name="add_year">Year</label>
+  <input name="add_year" type="number" min="1900" max="2015" placeholder="Year released"/>
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+</form>
+
+<form action="/results" method="post">
+  <p>Search for a CD</p>
+  <label name="search_by">Search by</label>
+  <select name="search_by">
+    <option value="artist" selected>Artist</option>
+    <option value="album">Album</option>
+  </select>
+  <label name="search_term">Search for</label>
+  <input name="search_term" type="text" placeholder="Your search term"/>
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+<form>
+
+<!-- <section>
+  <dl>
+    <dt><a href="/Artist">Artist</a></dt>
+    <dd>Album</dd>
+    <dd>Year</dd>
+    <dd>Other Album</dd>
+    <dd>Year</dd>
+    <dt><a href="/Artist">Artist</a></dt>
+    <dd>Album</dd>
+    <dd>Year</dd>
+    <dd>Other Album</dd>
+    <dd>Year</dd>
+  </dl>
+</section> -->
+
+<section>
+  <% if @collection == [] %>
+  <p>Your collection is empty. Want to add a CD?</p>
+  <% else %>
+  <dl>
+    <% @collection.each() do |cd_case| %>
+    <dt><a href="/Artist"><%= cd_case.artist() %></a></dt>
+    <dd><%= cd_case.album() %></dd>
+    <dd><%= cd_case.year() %></dd>
+    <% end %>
+  </dl>
+  <% end %>
+</section>

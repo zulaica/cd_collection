@@ -1,0 +1,13 @@
+<section>
+  <% if @search_results == [] %>
+  <p>Nope.</p>
+  <% else %>
+  <dl>
+    <% @search_results.each() do |the_cd| %>
+    <dt><a href="/<%= the_cd.artist() %>"><%= the_cd.artist() %></a></dt>
+    <dd><%= the_cd.album() %></dd>
+    <dd><%= the_cd.year() %></dd>
+    <% end %>
+  </dl>
+  <% end %>
+</section>
